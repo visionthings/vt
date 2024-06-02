@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { GreenButtonComponent } from '../../../custom/green-button/green-button.component';
+import { GreenButtonComponent } from '../../../../shared/green-button/green-button.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about-company',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, GreenButtonComponent],
+  imports: [CommonModule, NgOptimizedImage, GreenButtonComponent, RouterLink],
   templateUrl: './about-company.component.html',
   styleUrl: './about-company.component.css',
 })

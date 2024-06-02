@@ -107,7 +107,7 @@
           >تأكيد كلمة المرور</label
         >
         <input
-          id="password"
+          id="password_confirm"
           name="password_confirm"
           type="password"
           placeholder="******"
@@ -206,15 +206,6 @@
           siteKey="6LdG4egpAAAAAJ3SGSIirUiuo6xekatxoiFOWp4Q"
           formControlName="recaptchaReactive"
         ></re-captcha>
-
-        @if (recaptchaReactive.hasError('required')) {
-        <div
-          *ngIf="showAgreeError"
-          class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded"
-        >
-          <p>هذا الحقل إلزامي.</p>
-        </div>
-        }
       </div>
 
       <!-- Submit Button -->

@@ -38,6 +38,18 @@
           </p>
         </div>
       </div>
+      <div class="col-span-2">
+        <div class="flex gap-3">
+          @for (paymentGateway of paymentGateways; track $index) {
+          <img
+            [ngSrc]="paymentGateway"
+            alt="Payment Gateway"
+            width="40"
+            height="20"
+          />
+          }
+        </div>
+      </div>
       <div class="md:col-span-1">
         <label for="cvc" class="block mb-1">CVC </label>
         <input id="cvc" name="cvc" formControlName="cvc" placeholder="000" />
@@ -63,7 +75,8 @@
           id="expiry_date"
           name="expiry_date"
           formControlName="expiry_date"
-          placeholder="MM/YYYY"
+          placeholder="MM/YY"
+          mask="00/00"
         />
         <div
           *ngIf="
@@ -74,7 +87,6 @@
           <p *ngIf="expiry_date.errors?.['required']">
             ادخل تاريخ انتهاء البطاقة.
           </p>
-          <p *ngIf="expiry_date.errors?.['pattern']">ادخل تاريخ صالح.</p>
         </div>
       </div>
       <div class="md:col-span-2">

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInRedirectComponent } from './sign-in-redirect.component';
+import { SuccessMessageComponent } from './success-message.component';
 
-describe('SignInRedirectComponent', () => {
-  let component: SignInRedirectComponent;
-  let fixture: ComponentFixture<SignInRedirectComponent>;
+describe('SuccessMessageComponent', () => {
+  let component: SuccessMessageComponent;
+  let fixture: ComponentFixture<SuccessMessageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SignInRedirectComponent]
+      imports: [SuccessMessageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SignInRedirectComponent);
+    fixture = TestBed.createComponent(SuccessMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -30,10 +30,13 @@ export class RenewContractPaymentRedirectComponent implements OnInit {
           this.message = `عملية الدفع تمت بنجاح وجاري تحويلك الآن لصفحة تحميل العقد`;
           this.url = "/contract/renewed-contract";
           this.img = "success";
-
-          setTimeout(() => {
-            this.router.navigateByUrl("/contract/renewed-contract");
-          }, 3000);
+          this.contract.renewContract().subscribe({
+            next: () => {
+              setTimeout(() => {
+                this.router.navigateByUrl("/contract/renewed-contract");
+              }, 3000);
+            },
+          });
         } else {
           this.message = `تعذر اتمام عملية السداد، جاري تحويلك لصفحة الدفع مرة أخرى`;
           this.url = "/contract/renew-contract-payment";

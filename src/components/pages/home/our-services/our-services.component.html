@@ -31,11 +31,19 @@
               تمكنكم من التعاقد إلكترونيا على التركيب والتمديد وحجز موعد
               للمعاينة السريعة.
             </p>
-            <app-green-button
-              text="تعاقد الآن"
-              rightIcon="assets/images/our_services/button_contract_icon.png"
-              route="/contract/create-new-contract"
-            ></app-green-button>
+            <a routerLink="/contract/create-new-contract">
+              <app-green-button>
+                <div class="flex gap-3">
+                  <img
+                    ngSrc="assets/images/our_services/button_contract_icon.png"
+                    alt="Contract Icon"
+                    width="20"
+                    height="20"
+                  />
+                  <p>تعاقد الآن</p>
+                </div>
+              </app-green-button></a
+            >
           </div>
         </div>
         <div class="flex flex-col justify-center">
@@ -45,11 +53,19 @@
               اذا كان لديك تعاقد معنا وترغب بتجديده، توفر شركة رؤية الأشياء
               امكانية تجديد العقد الكترونياً.
             </p>
-            <app-green-button
-              text="جدد عقدك الآن"
-              rightIcon="assets/images/our_services/button_contract_icon.png"
-              route="/contract/registered-contracts"
-            ></app-green-button>
+            <a routerLink="/contract/registered-contracts">
+              <app-green-button>
+                <div class="flex gap-3">
+                  <img
+                    ngSrc="assets/images/our_services/button_contract_icon.png"
+                    alt="Contract Icon"
+                    width="20"
+                    height="20"
+                  />
+                  <p>جدد عقدك الآن</p>
+                </div></app-green-button
+              ></a
+            >
           </div>
         </div>
         <div class="flex justify-center animate-bounce-slow">
@@ -99,7 +115,9 @@
 
       <!-- Know more button -->
       <div class="flex justify-center pt-10">
-        <app-green-button text="اعرف أكثر" route="/about-us"></app-green-button>
+        <a routerLink="/about-us">
+          <app-green-button>اعرف أكثر</app-green-button></a
+        >
       </div>
     </div>
   </div>

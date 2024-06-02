@@ -14,7 +14,6 @@ import { SignUpComponent } from '../components/pages/sign-up/sign-up.component';
 import { AccountComponent } from '../components/pages/account/account.component';
 import { PersonalInformationComponent } from '../components/pages/account/personal-information/personal-information.component';
 import { ChangePasswordComponent } from '../components/pages/account/change-password/change-password.component';
-import { SignInRedirectComponent } from '../components/pages/sign-in-redirect/sign-in-redirect.component';
 import { SignOutComponent } from '../components/pages/account/sign-out/sign-out.component';
 import { PaymentComponent } from '../components/pages/contract/payment/payment.component';
 import { FinalContractComponent } from '../components/pages/contract/final-contract/final-contract.component';
@@ -33,6 +32,7 @@ import { RenewContractPaymentComponent } from '../components/pages/contract/rene
 import { RenewContractPaymentRedirectComponent } from '../components/pages/contract/renew-contract-payment-redirect/renew-contract-payment-redirect.component';
 import { RenewedContractComponent } from '../components/pages/contract/renewed-contract/renewed-contract.component';
 import { ResetPasswordComponent } from '../components/pages/reset-password/reset-password.component';
+import { contractGuard } from '../guards/contract.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -65,6 +65,7 @@ export const routes: Routes = [
       {
         path: 'final-contract',
         component: FinalContractComponent,
+        canActivate: [contractGuard],
       },
       {
         path: 'registered-contracts',
@@ -78,7 +79,11 @@ export const routes: Routes = [
         path: 'renew-contract-payment-redirect',
         component: RenewContractPaymentRedirectComponent,
       },
-      { path: 'renewed-contract', component: RenewedContractComponent },
+      {
+        path: 'renewed-contract',
+        component: RenewedContractComponent,
+        canActivate: [contractGuard],
+      },
       { path: 'companies', component: CompaniesComponent },
       {
         path: 'visit-request',
@@ -100,9 +105,8 @@ export const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'company-information', component: CompanyInformationComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-in-redirect', component: SignInRedirectComponent },
   { path: 'email-verification', component: EmailVerificationComponent },
-  { path: 'email-verified/:id', component: EmailVerifiedComponent },
+  { path: 'email-verified', component: EmailVerifiedComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   {
     path: 'account',

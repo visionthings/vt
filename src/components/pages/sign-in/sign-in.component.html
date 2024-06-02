@@ -39,14 +39,6 @@
         </div>
       </div>
       <div>
-        <div
-          *ngIf="errorMessage"
-          class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded col-span-2"
-        >
-          <p class="text-center">{{ errorMessage }}</p>
-        </div>
-      </div>
-      <div>
         <div>
           <a routerLink="/reset-password">
             <p class="mb-5 text-center text-blue-800 underline">
@@ -78,3 +70,7 @@
     </div>
   </form>
 </section>
+
+@if(errorMessage) {
+<app-error-message [message]="errorMessage"></app-error-message>
+}

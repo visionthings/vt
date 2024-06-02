@@ -106,12 +106,6 @@
         </div>
       </div>
     </form>
-    <div
-      *ngIf="errorMessage"
-      class="mt-5 bg-white mb-3 rounded shadow py-3 text-center text-rose-800 container"
-    >
-      <p>{{ errorMessage }}</p>
-    </div>
   </div>
 
   <!-- Price details -->
@@ -174,3 +168,7 @@
     </form>
   </div>
 </section>
+
+@if (errorMessage) {
+<app-error-message [message]="errorMessage"></app-error-message>
+}
