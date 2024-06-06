@@ -14,35 +14,35 @@ export class AboutCompanyComponent {
   statistics_first_row: { id: number; title: string; image_url: string }[] = [
     {
       id: 1,
-      title: `أكثر من 10 سنوات من الخبرة`,
-      image_url: 'assets/images/about_company/1.png',
+      title: 'عقد معتمد',
+      image_url: 'assets/images/about_company/approved-contract.png',
     },
     {
       id: 2,
-      title: `أكثر من 5 شركاء`,
-      image_url: 'assets/images/about_company/2.png',
+      title: 'إصدار العقد آلياً',
+      image_url: 'assets/images/about_company/online-contract.png',
     },
     {
       id: 3,
-      title: `أكثر من 3 ضيافة`,
-      image_url: 'assets/images/about_company/3.png',
+      title: 'طلبات الصيانة آلياً',
+      image_url: 'assets/images/about_company/maintenance-online.png',
     },
   ];
   statistics_second_row: { id: number; title: string; image_url: string }[] = [
     {
       id: 1,
-      title: `أكثر من 2 مكتب`,
-      image_url: 'assets/images/about_company/4.png',
+      title: 'تجديد العقد آلياً',
+      image_url: 'assets/images/about_company/renewal-online.png',
     },
     {
       id: 2,
-      title: `أكثر من 100 عميل سعيد`,
-      image_url: 'assets/images/about_company/5.png',
+      title: 'منصة موثقة',
+      image_url: 'assets/images/about_company/approved.png',
     },
     {
       id: 3,
-      title: `أكثر من 50 مشروع`,
-      image_url: 'assets/images/about_company/6.png',
+      title: 'بيانات الدفع مشفرة',
+      image_url: 'assets/images/about_company/encrypted.png',
     },
   ];
 }

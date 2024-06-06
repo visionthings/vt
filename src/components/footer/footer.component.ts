@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SmsService } from '../../services/sms.service';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
