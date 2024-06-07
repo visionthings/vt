@@ -77,5 +77,18 @@ export class NavbarComponent implements OnInit {
         });
       }
     }
+
+    this.authService.checkAuth().subscribe({
+      next: () => {},
+      error: () => {
+        localStorage.clear();
+        this.authService.handleAuth();
+        this.authService.isAuthenticated.subscribe({
+          next: (res) => {
+            this.isLoggedIn = res;
+          },
+        });
+      },
+    });
   }
 }

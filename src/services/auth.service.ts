@@ -86,7 +86,18 @@ export class AuthService {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
     });
   }
+  checkAuth() {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
 
+    return this.http.get(`${this.url}/users/check-auth`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
   getCompanyData(commercial_number: any) {
     const headers = new HttpHeaders({
       accept: 'application/json',

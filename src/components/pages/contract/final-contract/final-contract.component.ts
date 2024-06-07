@@ -117,7 +117,9 @@ export class FinalContractComponent implements OnInit {
       let fileHeight = PDF.internal.pageSize.getHeight();
       let position = 0;
       PDF.addImage(FILEURI, "PNG", 0, position, fileWidth, fileHeight);
-      PDF.save("Vision_Things_Contract.pdf");
+      PDF.save("VT_Contract.pdf");
     });
+
+    
   }
 }
