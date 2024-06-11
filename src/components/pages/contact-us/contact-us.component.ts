@@ -1,4 +1,10 @@
-import { Component, Injectable, Inject, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Injectable,
+  Inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { CommonModule, NgOptimizedImage, AsyncPipe } from '@angular/common';
 import { ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { ContactUsService } from '../../../services/contact-us.service';
@@ -12,6 +18,7 @@ import {
 } from '@angular/material/dialog';
 import { Subscription, first } from 'rxjs';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { Meta } from '@angular/platform-browser';
 
 export interface DialogData {
   message: string;
@@ -31,11 +38,12 @@ export interface DialogData {
   styleUrl: './contact-us.component.css',
 })
 @Injectable({ providedIn: 'root' })
-export class ContactUsComponent implements OnDestroy {
+export class ContactUsComponent implements OnDestroy, OnInit {
   constructor(
     private fb: FormBuilder,
     private contactUsService: ContactUsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private metaService: Meta
   ) {}
 
   // Handle clicking button
@@ -109,7 +117,13 @@ export class ContactUsComponent implements OnDestroy {
         },
       });
   }
-
+  ngOnInit(): void {
+    this.metaService.updateTag({
+      name: 'description',
+      content:
+        'يمكنك الاتصال بنا وترك الشكاوى والاقتراحات أو الاستفسار الذي تريده، وسوف نتصل بك في أقرب وقت ممكن',
+    });
+  }
   ngOnDestroy(): void {
     if (this.submit$) {
       this.submit$.unsubscribe();

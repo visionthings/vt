@@ -36,13 +36,18 @@ import { contractGuard } from '../guards/contract.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'about-us', component: AboutUsComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    title: 'منصة VT لعقود صيانة كاميرات المراقبة',
+  },
+  { path: 'about-us', component: AboutUsComponent, title: 'عن المنصة' },
   { path: 'contract-query/:id', component: ContractQueryComponent },
   {
     path: 'contract',
     component: ContractComponent,
     pathMatch: 'prefix',
+    title: 'عقد الكاميرات',
     canActivate: [authGuard],
     children: [
       {
@@ -53,10 +58,12 @@ export const routes: Routes = [
       {
         path: 'create-new-contract',
         component: CreateNewContractComponent,
+        title: 'إنشاء عقد جديد',
       },
       {
         path: 'payment',
         component: PaymentComponent,
+        title: 'الدفع',
       },
       {
         path: 'payment-redirect',
@@ -66,14 +73,17 @@ export const routes: Routes = [
         path: 'final-contract',
         component: FinalContractComponent,
         canActivate: [contractGuard],
+        title: 'العقد النهائي',
       },
       {
         path: 'registered-contracts',
         component: RegisteredContractsComponent,
+        title: 'العقود المسجلة',
       },
       {
         path: 'renew-contract-payment',
         component: RenewContractPaymentComponent,
+        title: 'الدفع',
       },
       {
         path: 'renew-contract-payment-redirect',
@@ -83,31 +93,73 @@ export const routes: Routes = [
         path: 'renewed-contract',
         component: RenewedContractComponent,
         canActivate: [contractGuard],
+        title: 'تجديد العقد',
       },
-      { path: 'companies', component: CompaniesComponent },
+      {
+        path: 'companies',
+        component: CompaniesComponent,
+        title: 'الشركات المسجلة',
+      },
       {
         path: 'visit-request',
         component: VisitRequestComponent,
+        title: 'طلبات الزيارة',
       },
-      { path: 'visit-payment', component: VisitPaymentComponent },
+      {
+        path: 'visit-payment',
+        component: VisitPaymentComponent,
+        title: 'الدفع',
+      },
       {
         path: 'visit-payment-redirect',
         component: VisitPaymentRedirectComponent,
       },
-      { path: 'visit-complete', component: VisitCompleteComponent },
+      {
+        path: 'visit-complete',
+        component: VisitCompleteComponent,
+        title: 'زيارة تقني',
+      },
     ],
   },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: 'return-policy', component: ReturnPolicyComponent },
+  { path: 'contact-us', component: ContactUsComponent, title: 'اتصل بنا' },
+  {
+    path: 'terms-and-conditions',
+    component: TermsAndConditionsComponent,
+    title: 'الشروط والأحكام',
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent,
+    title: 'سياسة الخصوصية',
+  },
+  {
+    path: 'return-policy',
+    component: ReturnPolicyComponent,
+    title: 'سياسة الاستبدال والاسترجاع',
+  },
   { path: 'verify', component: VerifyComponent },
-  { path: 'sign-up', component: SignUpComponent },
-  { path: 'company-information', component: CompanyInformationComponent },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'email-verification', component: EmailVerificationComponent },
-  { path: 'email-verified', component: EmailVerifiedComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'sign-up', component: SignUpComponent, title: 'التسجيل' },
+  {
+    path: 'company-information',
+    component: CompanyInformationComponent,
+    title: 'بيانات الشركة',
+  },
+  { path: 'sign-in', component: SignInComponent, title: 'تسجيل الدخول' },
+  {
+    path: 'email-verification',
+    component: EmailVerificationComponent,
+    title: 'التحقق من البريد الإلكتروني',
+  },
+  {
+    path: 'email-verified',
+    component: EmailVerifiedComponent,
+    title: 'التحقق من البريد الإلكتروني',
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
+    title: 'إعادة تعيين كلمة المرور',
+  },
   {
     path: 'account',
     component: AccountComponent,
@@ -118,19 +170,23 @@ export const routes: Routes = [
         path: '',
         redirectTo: 'personal-information',
         pathMatch: 'full',
+        title: 'البيانات الشخصية',
       },
       {
         path: 'personal-information',
         component: PersonalInformationComponent,
+        title: 'البيانات الشخصية',
       },
       {
         path: 'change-password',
         component: ChangePasswordComponent,
+        title: 'تغيير كلمة المرور',
       },
 
       {
         path: 'sign-out',
         component: SignOutComponent,
+        title: 'تسجيل الخروج',
       },
     ],
   },

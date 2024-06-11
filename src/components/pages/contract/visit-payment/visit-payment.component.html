@@ -26,6 +26,7 @@
           name="number"
           formControlName="number"
           placeholder="0000 0000 0000 0000"
+          type="password"
         />
         <div
           *ngIf="number.invalid && (number.dirty || number.touched)"
@@ -88,6 +89,16 @@
             ادخل تاريخ انتهاء البطاقة.
           </p>
         </div>
+      </div>
+      <div class="flex gap-3">
+        <p>مشفر عبر</p>
+        <a href="https://moyasar.com/ar/" target="_blank">
+          <img
+            ngSrc="assets/images/payment_gateways/moyasar.jpg"
+            alt="Moyasar"
+            width="60"
+            height="30"
+        /></a>
       </div>
       <div class="md:col-span-2">
         <button

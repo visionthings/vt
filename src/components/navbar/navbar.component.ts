@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
     },
     {
       id: 2,
-      title: `عن الشركة`,
+      title: `عن المنصة`,
       path: '/about-us',
     },
     {
@@ -81,7 +81,9 @@ export class NavbarComponent implements OnInit {
     this.authService.checkAuth().subscribe({
       next: () => {},
       error: () => {
-        localStorage.clear();
+        if (typeof window !== 'undefined') {
+          localStorage.clear();
+        }
         this.authService.handleAuth();
         this.authService.isAuthenticated.subscribe({
           next: (res) => {

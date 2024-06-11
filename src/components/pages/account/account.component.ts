@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLinkActive, RouterModule, Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-account',
@@ -9,8 +10,8 @@ import { RouterLinkActive, RouterModule, Router } from '@angular/router';
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })
-export class AccountComponent {
-  constructor(private router: Router) {}
+export class AccountComponent implements OnInit {
+  constructor(private router: Router, private metaService: Meta) {}
   items: {
     id: number;
     title: string;
@@ -27,5 +28,12 @@ export class AccountComponent {
 
   navigateToService(servicePath: string) {
     this.router.navigateByUrl(`/account/${servicePath}`);
+  }
+
+  ngOnInit(): void {
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'تحديث بياناتك الشخصية وتغيير كلمة المرور',
+    });
   }
 }
