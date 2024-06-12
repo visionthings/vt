@@ -4,6 +4,7 @@ import { RouterModule, Router } from '@angular/router';
 import { ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { AuthService, User } from '../../../services/auth.service';
 import { ErrorMessageComponent } from '../../../shared/error-message/error-message.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,6 +14,7 @@ import { ErrorMessageComponent } from '../../../shared/error-message/error-messa
     RouterModule,
     ReactiveFormsModule,
     ErrorMessageComponent,
+    SignUpComponent,
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css',
