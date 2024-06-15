@@ -44,7 +44,7 @@ export class ContractService {
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.get(`${this.url}/contracts/search/${contractNumber}`, {
+    return this.http.get(`${this.url}/contracts/${contractNumber}`, {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
     });
   }

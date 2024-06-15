@@ -33,12 +33,15 @@ export class PaymentComponent implements OnInit {
   isLoading = true;
 
   ngOnInit(): void {
-    let contract_number;
+    let contract_number: any;
     if (typeof window !== "undefined") {
       contract_number = localStorage.getItem("contract_number");
     }
     this.contractService.getContractDataByNumber(contract_number).subscribe({
       next: (res: any) => {
+        console.log(res);
+        console.log(contract_number);
+
         this.isLoading = false;
         this.contract = res;
         this.price = Number(this.contract.price).toFixed(2);
@@ -171,6 +174,8 @@ export class PaymentComponent implements OnInit {
       description: "Payment for contract",
       callback_url: "https://vt.com.sa/contract/payment-redirect",
       on_completed: "https://vt.com.sa/contract/final-contract",
+      // callback_url: "http://localhost:4200/contract/payment-redirect",
+      // on_completed: "http://localhost:4200/contract/final-contract",
       source: {
         type: "creditcard",
         name: this.paymentForm.value.name,

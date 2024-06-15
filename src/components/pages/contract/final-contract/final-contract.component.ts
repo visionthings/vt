@@ -1,4 +1,10 @@
-import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  Inject,
+} from "@angular/core";
 import { CommonModule, NgOptimizedImage } from "@angular/common";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -9,6 +15,8 @@ import { first } from "rxjs";
 import { InvoiceService } from "../../../../services/invoice.service";
 import { GreenButtonComponent } from "../../../../shared/green-button/green-button.component";
 import { Router } from "@angular/router";
+import { Renderer2 } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
 
 @Component({
   selector: "app-final-contract",
@@ -28,7 +36,9 @@ export class FinalContractComponent implements OnInit {
   constructor(
     private contractService: ContractService,
     private invoiceService: InvoiceService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
   contract_number: any = null;
@@ -38,6 +48,21 @@ export class FinalContractComponent implements OnInit {
   ngOnInit(): void {
     if (typeof window !== "undefined") {
       this.contract_number = localStorage.getItem("contract_number");
+      // Google Script
+      let amount = localStorage.getItem("payment_amount");
+      let id = localStorage.getItem("payment_id");
+      let script = this.renderer.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      this.renderer.setProperty(
+        script,
+        "innerHTML",
+        `
+      gtag('event', 'conversion', { 'send_to': 'AW-16593671627/b3BZCNW-vbYZEMurveg9', 'value': ${amount}, 'currency': 'SAR', 'transaction_id': ${id} });
+    `
+      );
+      this.renderer.appendChild(this.document.head, script);
+      // End of Google Script
     }
     this.contractService
       .getContractDataByNumber(this.contract_number)
@@ -119,7 +144,5 @@ export class FinalContractComponent implements OnInit {
       PDF.addImage(FILEURI, "PNG", 0, position, fileWidth, fileHeight);
       PDF.save("VT_Contract.pdf");
     });
-
-    
   }
 }

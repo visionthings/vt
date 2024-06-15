@@ -39,4 +39,13 @@ export class PaymentService {
       }
     );
   }
+
+  // Fetch Payment
+  fetchPayment(id: string) {
+    return this.http.get(`https://api.moyasar.com/v1/payments/${id}`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', `Basic ${this.auth}`),
+    });
+  }
 }
