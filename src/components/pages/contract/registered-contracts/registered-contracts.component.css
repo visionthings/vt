@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#table-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+table {
+  width: 100%;
+  overflow-x: scroll;
+}
+td {
+  text-align: center;
+}
+tr {
+  height: 50px;
+}
+tr:nth-child(even) {
+  background-color: #eff6ff;
+}

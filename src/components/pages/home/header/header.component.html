@@ -1,0 +1,41 @@
+<header class="grid grid-cols-1 md:grid-cols-2 mb-20 relative">
+  <img
+    ngSrc="assets/images/header/main_header.png"
+    alt="header"
+    fill
+    class="z-0"
+    priority
+  />
+  <div id="header_right" class="relative z-10">
+    <div
+      class="px-10 py-10 text-2xl 2xl:text-6xl text-center leading-relaxed 2xl:pt-20 z-20"
+    >
+      <h1 class="text-3xl">منصة VT</h1>
+      <p class="mt-2 text-teal-400 text-sm">
+        منصة سعودية موثقة من المركز السعودي للأعمال
+      </p>
+      <div class="flex justify-center pt-5 text-2xl">
+        <a routerLink="/contract/create-new-contract">
+          <app-green-button
+            ><p>اصدر عقدك الآن خلال دقيقتين</p></app-green-button
+          >
+        </a>
+      </div>
+      <p class="text-sm text-center mt-5">
+        عقد معتمد من شركات صيانة الأجهزة الأمنية المرخصة من قبل الهيئة
+        العليا للأمن الصناعي
+      </p>
+    </div>
+  </div>
+  <div id="header_left" class="hidden md:flex justify-center relative z-10">
+    <div class="z-20">
+      <img
+        ngSrc="assets/images/header/header_left.png"
+        alt="Home"
+        width="350"
+        height="400"
+        style="width: 80%; height: 70%"
+      />
+    </div>
+  </div>
+</header>

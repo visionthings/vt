@@ -1,0 +1,88 @@
+<section class="container xl:max-w-none xl:px-20 pb-10">
+  <h3 class="text-3xl mb-5">تحديث معلومات الملف الشخصي</h3>
+
+  <form [formGroup]="editProfileForm" (ngSubmit)="editProfile()">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="md:col-span-2">
+        <label for="name" class="block mb-1">اسم المستخدم ثلاثي</label>
+        <input
+          id="name"
+          name="name"
+          placeholder="اسم المستخدم ثلاثي باللغة العربية"
+          formControlName="name"
+        />
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded"
+        >
+          <p *ngIf="name.errors?.['required']">حقل الاسم مطلوب.</p>
+          <p *ngIf="name.errors?.['pattern']">ادخل الاسم بأحرف عربية فقط.</p>
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block mb-1">البريد الالكتروني</label>
+        <input
+          id="email"
+          name="email"
+          placeholder="name@email.com"
+          formControlName="email"
+        />
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded"
+        >
+          <p *ngIf="email.errors?.['required']">البريد الإلكتروني مطلوب.</p>
+          <p *ngIf="email.errors?.['email']">ادخل بريد الكتروني صالح.</p>
+        </div>
+      </div>
+
+      <div>
+        <label for="phone" class="block mb-1">الجوال</label>
+        <input
+          id="phone"
+          name="phone"
+          placeholder="رقم الجوال"
+          formControlName="phone"
+        />
+        <div
+          *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+          class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded"
+        >
+          <p *ngIf="phone.errors?.['required']">رقم الجوال مطلوب.</p>
+          <p *ngIf="phone.errors?.['minlength']">
+            رقم الجوال يجب أن يكون من 10 أرقام على الأقل.
+          </p>
+          <p *ngIf="phone.errors?.['pattern']">ادخل رقم جوال سعودي صالح.</p>
+        </div>
+      </div>
+
+      <div
+        *ngIf="responseMessage"
+        class="w-100 py-2 container bg-blue-100 text-blue-800 mt-1 rounded md:col-span-2"
+      >
+        <p class="text-center">{{ responseMessage }}</p>
+      </div>
+      <div
+        *ngIf="errorMessage"
+        class="w-100 py-2 container bg-pink-300 text-rose-700 mt-1 rounded col-span-2"
+      >
+        <p class="text-center">{{ errorMessage }}</p>
+      </div>
+      <div class="md:col-span-2">
+        <div class="flex justify-center">
+          <button
+            class="bg-teal-500 hover:bg-cyan-500 px-20 py-3 rounded-md shadow-lg text-white"
+            [class.ring-teal-500]="clicking"
+            [class.ring-1]="clicking"
+            (mousedown)="handleClickingChange()"
+            (mouseup)="handleClickingChange()"
+            [disabled]="!editProfileForm.valid"
+            type="submit"
+          >
+            تعديل بيانات الحساب
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

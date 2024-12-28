@@ -1,0 +1,57 @@
+<section
+  class="container xl:max-w-none xl:px-20 grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-10 mb-20"
+>
+  <div>
+    <h3 class="text-3xl leading-relaxed">عن المنصة</h3>
+    <p class="my-5">
+      منصة VT هي منصة سعودية لإصدار عقود صيانة أجهزة الكاميرات الأمنية ، حيث
+      تصدر العقود من جهات معتمدة ومرخصة من الهيئة العليا للأمن الصناعي ، تمتاز
+      المنصة بسهولة عملها ولا تحتاج إلى تواصل مع أي شخص لإصدار العقود أو تجديدها
+      أو طلبات الصيانة .
+    </p>
+    <a routerLink="/contact-us"></a>
+    <app-green-button>
+      <div class="flex gap-3">
+        <img
+          ngSrc="assets/images/social_media_icons/phone.png"
+          alt="Contract Icon"
+          width="20"
+          height="20"
+        />
+        <p>اتصل بنا</p>
+      </div></app-green-button
+    >
+  </div>
+  <div>
+    <div class="grid grid-cols-3 gap-5 mb-5 pe-5 animate-bounce-slow">
+      @for (item of statistics_first_row; track item.id) {
+      <div
+        class="bg-white shadow-md flex flex-col justify-center items-center p-3 rounded-lg"
+      >
+        <img
+          [ngSrc]="item.image_url"
+          alt="Statistical icon"
+          width="100"
+          height="100"
+        />
+        <p class="text-center mt-3 mb-5">{{ item.title }}</p>
+      </div>
+      }
+    </div>
+    <div class="grid grid-cols-3 gap-5 ps-5 animate-bounce-slow">
+      @for (item of statistics_second_row; track item.id) {
+      <div
+        class="bg-white shadow-md flex flex-col justify-center items-center p-3 rounded-lg"
+      >
+        <img
+          [ngSrc]="item.image_url"
+          alt="Statistical icon"
+          width="100"
+          height="100"
+        />
+        <p class="text-center mt-3">{{ item.title }}</p>
+      </div>
+      }
+    </div>
+  </div>
+</section>
